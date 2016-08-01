@@ -31,27 +31,18 @@ def plot_decision_regions(X,y,classifier,resolution=0.02):
     plt.xlim(xx1.min(), xx1.max())
     plt.ylim(xx2.min(), xx2.max())
     
-    plt.scatter(
-
-        x=X[:50,0],
-        y=X[:50,1],
-
-        alpha=0.8,
-        c=cmap(0),
-
-        marker="s"
-
-    )
+    markers = ("s", "x")
     
-    plt.scatter(
-
-        x=X[50:100,0],
-        y=X[50:100,1],
-
-        alpha=0.8,
-        c=cmap(1),
-
-        marker="o"
-
-    )
+    for i,yv in enumerate(np.unique(y)):
     
+        plt.scatter(
+
+            x=X[y == yv,0],
+            y=X[y == yv,1],
+
+            alpha=0.8,
+            c=cmap(i),
+
+            marker=markers[i]
+
+        )
