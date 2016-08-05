@@ -10,16 +10,23 @@ def plot_decision_regions(X,y,classifier,resolution=0.02):
     xx1, xx2 = np.meshgrid(
         np.arange(x1_min,x1_max,resolution),
         np.arange(x2_min,x2_max,resolution))
-    
+
     Z = classifier.predict(
         np.array(
             [xx1.ravel(),
              xx2.ravel()]).T)   
     
     Z = Z.reshape(xx1.shape)
+
+    colors = (
+            "red", 
+            "blue",
+            "lightgreen", 
+            "gray",
+            "cyan")
     
     cmap = ListedColormap(
-            ("red", "blue"))
+            colors[:len(np.unique(y))])
     
     plt.contourf(
         xx1,
@@ -31,7 +38,7 @@ def plot_decision_regions(X,y,classifier,resolution=0.02):
     plt.xlim(xx1.min(), xx1.max())
     plt.ylim(xx2.min(), xx2.max())
     
-    markers = ("s", "x")
+    markers = ("s", "x", "o", "^", "v")
     
     for i,yv in enumerate(np.unique(y)):
     
