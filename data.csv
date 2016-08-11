@@ -1,5 +1,6 @@
 Alt, Bar,Pat,WillWait
 T,F,Some,Y
 F,F,Full,N
+F,T,,N
 T,T,None,Y
 F,T,Some,Y
