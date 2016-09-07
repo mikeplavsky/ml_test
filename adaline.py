@@ -17,7 +17,7 @@ class AdalineGD:
             output = self.net_input(X)
             errors = y - output
 
-            self.w_[1:] += self.eta * X.T.dot(errors)
+            self.w_[1:] += self.eta * X.T.dot(errors) # all samples must influence coefficient 
             self.w_[0] += self.eta * errors.sum()
 
             cost = (errors ** 2).sum() / 2.0
